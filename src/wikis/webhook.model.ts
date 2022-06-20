@@ -26,7 +26,7 @@ export class Webhook extends Model {
 
   @Column({
     allowNull: false,
-    type: DataType.ENUM({ values: Object.keys(WebhookPlatform) })
+    type: DataType.ENUM({ values: Object.values(WebhookPlatform) })
   })
   platform: WebhookPlatform;
 

@@ -1,4 +1,6 @@
-import { Column, Model, Table } from 'sequelize-typescript';
+import { Column, HasMany, Model, Table } from 'sequelize-typescript';
+
+import { Webhook } from './webhook.model';
 
 @Table({
   tableName: 'wiki'
@@ -6,6 +8,9 @@ import { Column, Model, Table } from 'sequelize-typescript';
 export class Wiki extends Model {
   @Column({ allowNull: false })
   interwiki: string;
+
+  @HasMany(() => Webhook)
+  webhooks: Webhook[];
 
   @Column({ defaultValue: true })
   isActive: boolean;
